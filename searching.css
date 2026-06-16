@@ -1,0 +1,114 @@
+/* ========== SEARCHING SPECIFIC STYLES ========== */
+
+.array-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 40px 20px;
+  min-height: 350px;
+}
+
+.array-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ecef;
+  border: 3px solid #dee2e6;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.array-box.current {
+  background-color: var(--color-current);
+  border-color: var(--color-current);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+}
+
+.array-box.found {
+  background-color: var(--color-found);
+  border-color: var(--color-found);
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(25, 135, 84, 0.4);
+}
+
+.array-box.not-found {
+  background-color: var(--color-swapping);
+  border-color: var(--color-swapping);
+  color: white;
+}
+
+.array-box.in-range {
+  background-color: #cfe2ff;
+  border-color: #9ec5fe;
+}
+
+.array-box.eliminated {
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  opacity: 0.5;
+}
+
+.array-box-index {
+  position: absolute;
+  bottom: -25px;
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: normal;
+}
+
+.array-box-pointer {
+  position: absolute;
+  top: -30px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #212529;
+  color: white;
+}
+
+.array-box-pointer.left {
+  background-color: #0d6efd;
+}
+
+.array-box-pointer.right {
+  background-color: #dc3545;
+}
+
+.array-box-pointer.mid {
+  background-color: #198754;
+}
+
+/* Target Display */
+.target-display {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff3cd;
+  border-radius: 8px;
+  border: 2px solid #ffc107;
+}
+
+.target-display span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #856404;
+}
+
+/* Searching Legend Colors */
+.legend-default-search { background-color: #e9ecef; border: 2px solid #dee2e6; }
+.legend-current { background-color: var(--color-current); }
+.legend-found { background-color: var(--color-found); }
+.legend-in-range { background-color: #cfe2ff; }
+.legend-eliminated { background-color: #f8d7da; }

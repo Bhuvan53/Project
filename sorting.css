@@ -1,0 +1,59 @@
+/* ========== SORTING SPECIFIC STYLES ========== */
+
+.bar-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 350px;
+  gap: 2px;
+  padding: 10px;
+}
+
+.bar {
+  background-color: var(--color-default);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 30px;
+}
+
+.bar.comparing {
+  background-color: var(--color-comparing);
+}
+
+.bar.swapping {
+  background-color: var(--color-swapping);
+}
+
+.bar.sorted {
+  background-color: var(--color-sorted);
+}
+
+.bar.pivot {
+  background-color: var(--color-pivot);
+}
+
+.bar-value {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.bar-index {
+  position: absolute;
+  bottom: -20px;
+  font-size: 10px;
+  color: #6c757d;
+}
+
+/* Sorting Legend Colors */
+.legend-default { background-color: var(--color-default); }
+.legend-comparing { background-color: var(--color-comparing); }
+.legend-swapping { background-color: var(--color-swapping); }
+.legend-sorted { background-color: var(--color-sorted); }
+.legend-pivot { background-color: var(--color-pivot); }

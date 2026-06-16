@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bubble Sort | AlgoViz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/visualizer-common.css">
+  <link rel="stylesheet" href="../css/sorting.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="../index.html">AlgoViz</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Sorting</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item active" href="bubble-sort.html">Bubble Sort</a></li>
+            <li><a class="dropdown-item" href="selection-sort.html">Selection Sort</a></li>
+            <li><a class="dropdown-item" href="insertion-sort.html">Insertion Sort</a></li>
+            <li><a class="dropdown-item" href="merge-sort.html">Merge Sort</a></li>
+            <li><a class="dropdown-item" href="quick-sort.html">Quick Sort</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Searching</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="linear-search.html">Linear Search</a></li>
+            <li><a class="dropdown-item" href="binary-search.html">Binary Search</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Graph</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="bfs.html">BFS</a></li>
+            <li><a class="dropdown-item" href="dfs.html">DFS</a></li>
+            <li><a class="dropdown-item" href="dijkstra.html">Dijkstra</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    
+    <!-- Left Sidebar -->
+    <div class="col-lg-3 sidebar">
+      <div class="back-link">
+        <a href="../index.html">&larr; Back to Home</a>
+      </div>
+      
+      <h4>Bubble Sort</h4>
+      
+      <div class="complexity-box">
+        <h6>Time Complexity</h6>
+        <p>Best: O(n)<br>Average: O(n²)<br>Worst: O(n²)</p>
+        <h6>Space Complexity</h6>
+        <p>O(1)</p>
+      </div>
+      
+      <div class="code-section">
+        <h6>Pseudocode</h6>
+        <pre id="code-display"></pre>
+      </div>
+      
+      <div class="legend mt-4">
+        <h6>Legend</h6>
+        <div class="legend-item">
+          <div class="legend-color legend-default"></div>
+          <span>Unsorted</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color legend-comparing"></div>
+          <span>Comparing</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color legend-swapping"></div>
+          <span>Swapping</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color legend-sorted"></div>
+          <span>Sorted</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="col-lg-6">
+      <div id="alert-container"></div>
+      
+      <div class="visualization-container">
+        <canvas id="visualizer-canvas"></canvas>
+      </div>
+      
+      <div class="input-section">
+        <label class="form-label">Enter array (comma-separated numbers):</label>
+        <div class="row g-2">
+          <div class="col-md-8">
+            <input type="text" id="input-array" class="form-control" placeholder="e.g., 64, 34, 25, 12, 22, 11, 90">
+          </div>
+          <div class="col-md-4">
+            <button id="generate-btn" class="btn btn-secondary w-100">Random Array</button>
+          </div>
+        </div>
+        <button id="start-btn" class="btn btn-primary w-100 mt-3">Start Visualization</button>
+      </div>
+      
+      <div class="controls">
+        <button id="play-btn" class="btn btn-success" disabled>Play</button>
+        <button id="pause-btn" class="btn btn-warning" disabled>Pause</button>
+        <button id="step-back-btn" class="btn btn-outline-secondary" disabled>&lt; Back</button>
+        <button id="step-btn" class="btn btn-info" disabled>Step &gt;</button>
+        <button id="reset-btn" class="btn btn-danger" disabled>Reset</button>
+        
+        <div class="speed-control">
+          <label>Speed:</label>
+          <input type="range" id="speed-slider" min="1" max="3" value="2" step="1">
+          <span id="speed-label">Medium</span>
+        </div>
+        
+        <div class="mt-2">
+          <small id="step-counter" class="text-muted">Step 0 of 0</small>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Sidebar -->
+    <div class="col-lg-3">
+      <div class="step-info">
+        <h6>Current Step</h6>
+        <p id="step-description">Enter an array and click "Start Visualization" to begin.</p>
+        
+        <h6>Statistics</h6>
+        <ul id="stats-list">
+          <li>Comparisons: <span id="comparisons">0</span></li>
+          <li>Swaps: <span id="swaps">0</span></li>
+          <li>Array Accesses: <span id="accesses">0</span></li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/shared/utils.js"></script>
+<script src="../js/shared/state-manager.js"></script>
+<script src="../js/shared/controls.js"></script>
+<script src="../js/sorting/bubble-sort.js"></script>
+</body>
+</html>

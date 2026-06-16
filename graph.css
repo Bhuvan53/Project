@@ -1,0 +1,213 @@
+/* ========== GRAPH SPECIFIC STYLES ========== */
+
+.graph-container {
+  position: relative;
+  width: 100%;
+  height: 350px;
+}
+
+.graph-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Node Styles */
+.graph-node {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: white;
+  border: 3px solid #212529;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.graph-node.unvisited {
+  background-color: white;
+  border-color: #6c757d;
+}
+
+.graph-node.visiting {
+  background-color: var(--color-visiting);
+  border-color: #d39e00;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5);
+}
+
+.graph-node.visited {
+  background-color: var(--color-visited);
+  border-color: #146c43;
+  color: white;
+}
+
+.graph-node.current {
+  background-color: var(--color-current);
+  border-color: #0b5ed7;
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.5);
+}
+
+.graph-node.start {
+  border-color: #198754;
+  border-width: 4px;
+}
+
+.graph-node.end {
+  border-color: #dc3545;
+  border-width: 4px;
+}
+
+/* Node Distance Label (for Dijkstra) */
+.node-distance {
+  position: absolute;
+  bottom: -25px;
+  font-size: 12px;
+  background-color: #212529;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+/* Queue/Stack Display */
+.data-structure-display {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid #dee2e6;
+}
+
+.data-structure-display h6 {
+  margin-bottom: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6c757d;
+}
+
+.queue-items, .stack-items {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.queue-item, .stack-item {
+  padding: 8px 15px;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Graph Controls */
+.graph-controls {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.graph-controls label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.graph-controls select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Start/End Node Selection */
+.node-selection {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.node-selection .form-group {
+  flex: 1;
+}
+
+.node-selection label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.node-selection select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+}
+
+/* Distance Table (Dijkstra) */
+.distance-table {
+  margin-top: 20px;
+}
+
+.distance-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.distance-table th, .distance-table td {
+  padding: 8px 12px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+}
+
+.distance-table th {
+  background-color: #343a40;
+  color: white;
+}
+
+.distance-table td {
+  background-color: white;
+}
+
+.distance-table td.updated {
+  background-color: #d1e7dd;
+  font-weight: bold;
+}
+
+/* Path Display */
+.path-display {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #d1e7dd;
+  border-radius: 8px;
+  border: 2px solid #198754;
+}
+
+.path-display h6 {
+  color: #0f5132;
+  margin-bottom: 10px;
+}
+
+.path-display .path {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0f5132;
+}
+
+/* Graph Legend Colors */
+.legend-unvisited { background-color: white; border: 2px solid #6c757d; }
+.legend-visiting { background-color: var(--color-visiting); }
+.legend-visited { background-color: var(--color-visited); }
+.legend-current-graph { background-color: var(--color-current); }
